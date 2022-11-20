@@ -1,7 +1,9 @@
 <template>
   <v-app>
 
-    <div>Bonjour</div>
+    <h1>Bonjour</h1>
+    <div>connecté : {{ authStore.isAuthenticated}}</div>
+
 
     <v-main>
       <RouterView></RouterView>
@@ -12,5 +14,11 @@
 <script setup>
 
   import { RouterLink, RouterView } from 'vue-router'
-  import HelloWorld from '@/components/HelloWorld.vue'
+
+  import { useAuthStore } from '@/stores/auth'
+
+  const authStore = useAuthStore()
+
+  console.log('authStore', authStore)
+
 </script>
