@@ -1,9 +1,12 @@
 <template>
   <v-app>
 
-    <v-toolbar
-      class="bg-green-accent-2"
-    >
+      <v-toolbar
+        dark
+        prominent
+      >
+
+      <v-app-bar-nav-icon></v-app-bar-nav-icon>
 
       <v-toolbar-title class="text-green-darken-4 font-weight-bold">
         Decouverte Vuetify 3
@@ -13,22 +16,18 @@
 
         <v-btn
         :to="{name: 'home'}"
-        color="white"
         >Home</v-btn>
 
         <v-btn
           :to="{name: 'about'}"
-          color="primary"
         >About</v-btn>
 
         <v-btn
           :to="{name: 'login'}"
-          color="primary"
         >Login</v-btn>
 
         <v-btn
           :to="{name: 'administration'}"
-          color="primary"
         >Admin</v-btn>
 
 
@@ -49,16 +48,20 @@
           <h1 class="bg-brown-lighten-4 w-25 text-center" >Bonjour</h1>
           <div class="bg-teal-lighten-4">connecté : {{ authStore.isAuthenticated}}</div>
 
-          <div class="bg-blue-grey-lighten-2 w-25 text-center">
-            je suis la
+          <v-main class="bg-blue-grey-lighten-2 w-25 text-center w-100">
             <RouterView></RouterView>
-          </div>
+          </v-main>
 
         </v-col>
 
       </v-row>
 
     </v-container>
+
+
+
+
+
 
   </v-app>
 
