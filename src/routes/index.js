@@ -7,6 +7,7 @@ import AdminLayout from '@/views/layouts/AdminLayout.vue'
 import DefaultLayout from '@/views/layouts/DefaultLayout.vue'
 import AdminDashboard from '@/views/pages/admin/AdminDashboard.vue'
 import About from '@/views/pages/About.vue'
+import NotFound from '@/views/pages/NotFound.vue'
 
 const routes = [
   {
@@ -60,6 +61,7 @@ const routes = [
       }
     ]
   },
+  { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound },
 
 ]
 
