@@ -16,6 +16,7 @@
     "webfontloader": "^1.0.0"
   },
   "devDependencies": {
+    "@fortawesome/fontawesome-free": "^6.2.1",
     "@vitejs/plugin-vue": "^3.0.3",
     "sass": "^1.56.1",
     "vite": "^3.1.9",
