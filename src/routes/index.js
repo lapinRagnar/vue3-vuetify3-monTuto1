@@ -6,8 +6,10 @@ import AuthLayout from '@/views/layouts/AuthLayout.vue'
 import AdminLayout from '@/views/layouts/AdminLayout.vue'
 import DefaultLayout from '@/views/layouts/DefaultLayout.vue'
 import AdminDashboard from '@/views/pages/admin/AdminDashboard.vue'
+import PortfolioLayout from '@/views/layouts/PortfolioLayout.vue'
 import About from '@/views/pages/About.vue'
 import NotFound from '@/views/pages/NotFound.vue'
+import HomePortfolio from '@/views/pages/portfolio/HomePortfolio.vue'
 
 const routes = [
   {
@@ -57,6 +59,21 @@ const routes = [
         name: 'administration',
         meta: {
           title: 'Admin'
+        },
+      }
+    ]
+  },
+  {
+    path: '/portfolio',
+    name: 'portfolio',
+    component: PortfolioLayout,
+    children: [
+      {
+        path: "",
+        component: HomePortfolio,
+        name: 'portfolio',
+        meta: {
+          title: 'Portfolio'
         },
       }
     ]

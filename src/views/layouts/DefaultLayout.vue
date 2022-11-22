@@ -19,6 +19,10 @@
         >Home</v-btn>
 
         <v-btn
+        :to="{name: 'portfolio'}"
+        >Portfolio</v-btn>
+
+        <v-btn
           :to="{name: 'about'}"
         >About</v-btn>
 
