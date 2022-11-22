@@ -10,10 +10,14 @@
     <RouterLink :to="{name: 'home'}">Home</RouterLink>
 
   </div>
+
+
+
 </template>
 
 <script setup>
 
 import { RouterLink, RouterView } from 'vue-router'
+
 
 </script>
