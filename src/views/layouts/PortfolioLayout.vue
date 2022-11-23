@@ -7,7 +7,7 @@
       <RouterView />
     </div>
 
-    <RouterLink :to="{name: 'home'}">Home</RouterLink>
+    <v-btn class="mt-15" :to="{name: 'home'}">Home</v-btn>
 
   </div>
 
