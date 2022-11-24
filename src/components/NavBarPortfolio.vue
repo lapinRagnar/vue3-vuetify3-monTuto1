@@ -11,6 +11,7 @@
         color="yellow"
         left
         class="mr-2"
+        :to="{name: 'home'}"
       >fas fa-signature</v-icon>
     LapinRagnar</v-btn>
 
