@@ -1,38 +1,46 @@
 <template>
 
+  <!-- -------------------------------- head --------------------------------------- -->
+
   <v-app id="home">
 
     <NavBarPortfolio />
 
     <v-container fluid>
 
-      <div class="head">
+      <div class="head w-100">
 
-        <v-row>
+        <v-row no-gutters class=" head-premiere-ligne d-block d-sm-flex w-100 ma-0 pa-0">
 
-          <v-col cols="5">
-            <div style="position: relative" class="mt-16">
+          <v-col cols="7"  class=" ">
+
+            <div style="position: relative;" class="mt-10 bg-blue-darken-4 pa-0">
               <h1 class="text-grey">Hello</h1>
               <h1 class="text-white">I'm lapinRagnar</h1>
               <span class="text-grey">web designer & developer vue js</span>
               <br>
               <v-btn tile dark class="text-yellow mt-8 " variant="outlined">Contact me</v-btn>
             </div>
+
           </v-col>
+
          <v-col
             cols="2"
+            sm="12"
+            xs="12"
             style="position: absolute; z-index: 999; bottom: 0; margin-left: auto; margin-right: auto; left: 0; right: 0; text-align: center;"
           >
             <v-icon icon="fas fa-angle-double-down" />
           </v-col>
+
           <v-col
             cols="5"
             style="position: relative; z-index: 999; "
-            class="mt-16"
+            class="bg-amber-accent-2 mt-10"
           >
             <v-img
               src="https://static.raymondcamden.com/images/banners/code.jpg"
-              contain
+              cover
               max-height="200"
             >
             </v-img>
@@ -317,7 +325,9 @@
 </template>
 
 <script setup>
-  import { ref } from 'vue';
+  import { onMounted, ref } from 'vue'
+  import { useDisplay } from 'vuetify'
+
   import NavBarPortfolio from '@/components/NavBarPortfolio.vue'
   import FooterPortofolio from '@/components/FooterPortofolio.vue'
 
@@ -346,6 +356,13 @@
     },
   ])
 
+  const { width, mobile } = useDisplay()
+
+  onMounted(() => {
+    console.log(' mobile ', mobile.value)
+    console.log(' width ', width.value)
+  })
+
 
 
 </script>
@@ -366,6 +383,8 @@
       width: 100%;
       color: white;
 
+      /* background-color: cadetblue; */
+
       &:before {
         content: '';
         position: absolute;
@@ -375,6 +394,11 @@
         width: 50%;
         background: black;
         transform: skew(0deg, 6deg);
+        display: none;
+      }
+
+      .head-premiere-ligne {
+        background-color: darkgreen;
       }
 
       &:after {
@@ -386,6 +410,7 @@
         width: 50%;
         background: black;
         transform: skew(0deg, -6deg);
+        display: none;
       }
     }
 

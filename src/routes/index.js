@@ -1,21 +1,14 @@
 
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '@/views/pages/Home.vue'
-import Login from '@/views/pages/auth/Login.vue'
-import AuthLayout from '@/views/layouts/AuthLayout.vue'
-import AdminLayout from '@/views/layouts/AdminLayout.vue'
-import DefaultLayout from '@/views/layouts/DefaultLayout.vue'
-import AdminDashboard from '@/views/pages/admin/AdminDashboard.vue'
-import PortfolioLayout from '@/views/layouts/PortfolioLayout.vue'
-import About from '@/views/pages/About.vue'
+
 import NotFound from '@/views/pages/NotFound.vue'
-import HomePortfolio from '@/views/pages/portfolio/HomePortfolio.vue'
+
 
 const routes = [
   {
     path: '/',
     name: 'pages',
-    component: DefaultLayout,
+    component: () => import('@/views/layouts/DefaultLayout.vue'),
     redirect: to => {
       return 'home'
     },
@@ -23,12 +16,12 @@ const routes = [
       {
         path: 'home',
         name: 'home',
-        component: Home
+        component: () => import('@/views/pages/Home.vue')
       },
       {
         path: 'about',
         name: 'about',
-        component: About
+        component: () => import('@/views/pages/About.vue')
       },
 
     ]
@@ -36,11 +29,11 @@ const routes = [
   {
     path: '/auth',
     name: 'auth',
-    component: AuthLayout,
+    component: () => import('@/views/layouts/AuthLayout.vue'),
     children: [
       {
         path: "",
-        component: Login,
+        component: () => import('@/views/pages/auth/Login.vue'),
         name: 'login',
         meta: {
           title: 'Login'
@@ -51,11 +44,11 @@ const routes = [
   {
     path: '/admin',
     name: 'admin',
-    component: AdminLayout,
+    component: () => import('@/views/layouts/AdminLayout.vue'),
     children: [
       {
         path: "",
-        component: AdminDashboard,
+        component: () => import('@/views/pages/auth/Login.vue'),
         name: 'administration',
         meta: {
           title: 'Admin'
@@ -66,11 +59,11 @@ const routes = [
   {
     path: '/portfolio',
     name: 'portfolio',
-    component: PortfolioLayout,
+    component: () => import('@/views/layouts/PortfolioLayout.vue'),
     children: [
       {
         path: "",
-        component: HomePortfolio,
+        component: () => import('@/views/pages/portfolio/HomePortfolio.vue'),
         name: 'portfolio',
         meta: {
           title: 'Portfolio'
@@ -78,7 +71,7 @@ const routes = [
       }
     ]
   },
-  { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound },
+  { path: '/:pathMatch(.*)*', name: 'NotFound', component: () => import('@/views/pages/NotFound.vue') },
 
 ]
 
