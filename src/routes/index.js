@@ -1,7 +1,6 @@
 
 import { createRouter, createWebHistory } from 'vue-router'
 
-import NotFound from '@/views/pages/NotFound.vue'
 
 
 const routes = [
