@@ -202,9 +202,9 @@
 
       <!-- -------------------------------- page --------------------------------------- -->
 
-      <v-col cols="12" id="page" class="my-8">
+      <v-col cols="12" id="page" class="my-4">
 
-        <div class="text-h1 bg-lime-lighten-4  text-center mt-16 mb-16">Pages</div>
+        <div class="text-h1 bg-lime-lighten-4  text-center mb-16">Pages</div>
 
         <div class="pre">
           <v-row>
