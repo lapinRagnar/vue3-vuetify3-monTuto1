@@ -29,7 +29,7 @@
 
 
       <v-btn
-        @click="scroll('home')"
+        :to="{name: 'home'}"
         :class="hashSelected == 'home' ? 'navigation-selectionnee' : '' "
       >
         <v-icon left class="mr-2" icon="fa-solid fa-house" />

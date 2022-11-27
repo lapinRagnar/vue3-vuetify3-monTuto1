@@ -1,4 +1,5 @@
 <template>
+
   <div>
 
     <h1>Mon Portfolio Layout</h1>
@@ -7,11 +8,8 @@
       <RouterView />
     </div>
 
-    <v-btn class="mt-15" :to="{name: 'home'}">Home</v-btn>
 
   </div>
-
-
 
 </template>
 

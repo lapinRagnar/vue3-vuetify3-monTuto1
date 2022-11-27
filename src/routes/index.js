@@ -57,11 +57,11 @@ const routes = [
   },
   {
     path: '/portfolio',
-    name: 'portfolio',
+    name: 'portfo',
     component: () => import('@/views/layouts/PortfolioLayout.vue'),
     children: [
       {
-        path: "",
+        path: "homePortfolio",
         component: () => import('@/views/pages/portfolio/HomePortfolio.vue'),
         name: 'portfolio',
         meta: {
