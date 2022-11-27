@@ -4,7 +4,8 @@
     color="black"
     dark
     flat
-    class="px-12"
+    class="px-12 flex-column"
+    height="100"
   >
     <v-btn>
       <v-icon
@@ -12,71 +13,99 @@
         left
         class="mr-2"
         :to="{name: 'home'}"
-      >fas fa-signature</v-icon>
-    LapinRagnar</v-btn>
+      >fas fa-signature
+      </v-icon>
+      LapinRagnar
+    </v-btn>
 
     <v-spacer></v-spacer>
 
     <v-btn
-      text
-      class="text-yellow"
       @click="scroll('home')"
+      :class="hashSelected == 'home' ? 'navigation-selectionnee' : '' "
     >
-    Home
+      <v-icon left class="mr-2" icon="fa-solid fa-house" />
+      <span class="d-xl-none"> <span>Home</span></span>
     </v-btn>
 
+
     <v-btn
-      text
       @click="scroll('about')"
+      :class="hashSelected == 'about' ? 'navigation-selectionnee' : '' "
     >
-    About
+      <v-icon left class="mr-2" icon="fa-solid fa-question" />
+      <span class="d-xl-none"> <span>About</span></span>
     </v-btn>
 
     <v-btn
-      text
       @click="scroll('portfolio')"
+      :class="hashSelected == 'portfolio' ? 'navigation-selectionnee' : '' "
     >
-    Portfolio
+      <v-icon left class="mr-2" icon="fa-solid fa-list-check" />
+      Portfolio
     </v-btn>
 
     <v-btn
-      text
       @click="scroll('service')"
+      :class="hashSelected == 'service' ? 'navigation-selectionnee' : '' "
     >
-    Service
+      <v-icon left class="mr-2" icon="fa-solid fa-person-digging" />
+      Service
     </v-btn>
 
     <v-btn
-      text
       @click="scroll('page')"
+      :class="hashSelected == 'page' ? 'navigation-selectionnee' : '' "
     >
-    Page
+      <v-icon left class="mr-2" icon="fa-solid fa-pencil" />
+      Page
     </v-btn>
 
     <v-btn
-      text
       @click="scroll('blog')"
+      :class="hashSelected == 'blog' ? 'navigation-selectionnee' : '' "
     >
-    Blog
+      <v-icon left class="mr-2" icon="fa-solid fa-blog" />
+      Blog
     </v-btn>
 
     <v-btn
-      text
       @click="scroll('contact')"
+      :class="hashSelected == 'contact' ? 'navigation-selectionnee' : '' "
     >
-    Contact
+      <v-icon left class="mr-2" icon="fa-solid fa-address-card" />
+      Contact
     </v-btn>
+
+
 
   </v-app-bar>
 </template>
 
 <script setup>
 
+  import { ref } from 'vue';
+
+
+  const hashSelected = ref('')
+
   function scroll(refName) {
+
     const element = document.getElementById(refName)
     element.scrollIntoView({ behavior: 'smooth' })
+
+    hashSelected.value = refName
+    console.log('hashSelected', hashSelected.value)
   }
 
+
 </script>
+
+<style lang="scss" scoped>
+  .navigation-selectionnee {
+    border-bottom: 2px solid orange;
+    color: greenyellow;
+  }
+</style>
 
 

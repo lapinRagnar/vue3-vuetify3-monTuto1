@@ -394,7 +394,7 @@
         width: 50%;
         background: black;
         transform: skew(0deg, 6deg);
-        display: none;
+        /* display: none; */
       }
 
       .head-premiere-ligne {
@@ -410,7 +410,7 @@
         width: 50%;
         background: black;
         transform: skew(0deg, -6deg);
-        display: none;
+        /* display: none; */
       }
     }
 
