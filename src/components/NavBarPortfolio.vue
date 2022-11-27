@@ -4,7 +4,7 @@
     color="black"
     dark
     flat
-    class="px-12 flex-column"
+    class="px-12"
     height="100"
   >
     <v-btn>
@@ -25,7 +25,7 @@
       :class="hashSelected == 'home' ? 'navigation-selectionnee' : '' "
     >
       <v-icon left class="mr-2" icon="fa-solid fa-house" />
-      <span class="d-xl-none"> <span>Home</span></span>
+      <span class="hidden-sm-and-down"> <span>Home</span></span>
     </v-btn>
 
 
@@ -34,7 +34,7 @@
       :class="hashSelected == 'about' ? 'navigation-selectionnee' : '' "
     >
       <v-icon left class="mr-2" icon="fa-solid fa-question" />
-      <span class="d-xl-none"> <span>About</span></span>
+      <span class="hidden-sm-and-down"> <span>About</span></span>
     </v-btn>
 
     <v-btn
@@ -42,7 +42,9 @@
       :class="hashSelected == 'portfolio' ? 'navigation-selectionnee' : '' "
     >
       <v-icon left class="mr-2" icon="fa-solid fa-list-check" />
-      Portfolio
+      <span class="hidden-sm-and-down">
+        Portfolio
+      </span>
     </v-btn>
 
     <v-btn
@@ -50,7 +52,9 @@
       :class="hashSelected == 'service' ? 'navigation-selectionnee' : '' "
     >
       <v-icon left class="mr-2" icon="fa-solid fa-person-digging" />
-      Service
+      <span class="hidden-sm-and-down">
+        Service
+      </span>
     </v-btn>
 
     <v-btn
@@ -58,7 +62,9 @@
       :class="hashSelected == 'page' ? 'navigation-selectionnee' : '' "
     >
       <v-icon left class="mr-2" icon="fa-solid fa-pencil" />
-      Page
+      <span class="hidden-sm-and-down">
+        Page
+      </span>
     </v-btn>
 
     <v-btn
@@ -66,7 +72,9 @@
       :class="hashSelected == 'blog' ? 'navigation-selectionnee' : '' "
     >
       <v-icon left class="mr-2" icon="fa-solid fa-blog" />
-      Blog
+      <span class="hidden-sm-and-down">
+        Blog
+      </span>
     </v-btn>
 
     <v-btn
@@ -74,7 +82,9 @@
       :class="hashSelected == 'contact' ? 'navigation-selectionnee' : '' "
     >
       <v-icon left class="mr-2" icon="fa-solid fa-address-card" />
-      Contact
+      <span class="hidden-sm-and-down">
+        Contact
+      </span>
     </v-btn>
 
 
