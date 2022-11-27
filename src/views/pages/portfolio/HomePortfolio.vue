@@ -10,38 +10,43 @@
 
       <div class="head w-100">
 
-        <v-row no-gutters class=" head-premiere-ligne d-block d-sm-flex w-100 ma-0 pa-0">
+        <v-row no-gutters class=" head-premiere-ligne  mb-10">
 
-          <v-col cols="7"  class=" ">
+          <v-col
+            cols="12"
+            sm="12"
+            md="6"
+            style="position: relative; z-index: 999;"
+          >
 
-            <div style="position: relative;" class="mt-10 bg-blue-darken-4 pa-0">
+            <div  class="mt-10 bg-blue-darken-4 pa-0">
               <h1 class="text-grey">Hello</h1>
               <h1 class="text-white">I'm lapinRagnar</h1>
               <span class="text-grey">web designer & developer vue js</span>
               <br>
-              <v-btn tile dark class="text-yellow mt-8 " variant="outlined">Contact me</v-btn>
+              <v-btn tile dark class="text-yellow mt-8 mb-10 " variant="outlined">Contact me</v-btn>
             </div>
 
           </v-col>
 
-         <v-col
+          <v-col
             cols="2"
-            sm="12"
-            xs="12"
             style="position: absolute; z-index: 999; bottom: 0; margin-left: auto; margin-right: auto; left: 0; right: 0; text-align: center;"
           >
             <v-icon icon="fas fa-angle-double-down" />
           </v-col>
 
           <v-col
-            cols="5"
+            cols="12"
+            sm="12"
+            md="6"
             style="position: relative; z-index: 999; "
-            class="bg-amber-accent-2 mt-10"
+            class="mt-10"
           >
             <v-img
               src="https://static.raymondcamden.com/images/banners/code.jpg"
               cover
-              max-height="200"
+              max-height="230"
             >
             </v-img>
           </v-col>
@@ -50,49 +55,46 @@
 
       </div>
 
-      <v-col
-        cols="12"
-        class="mt-16"
-        id="about"
-      >
 
-        <div>
 
-          <v-row>
+      <!-- -------------------------------- About --------------------------------------- -->
 
-            <v-col cols="12" sm="6">
-              <div class="egg">
-                <div class="mb-10" style="height: 5px; " ></div>
-                <v-img
-                  src="https://www.pngitem.com/pimgs/m/507-5077806_transparent-women-professional-business-woman-transparent-background-hd.png"
-                  max-height="230"
-                >
-                </v-img>
-              </div>
-            </v-col>
-            <v-col cols="12" sm="6">
-              <h5 class="mt-16">About me</h5>
-              <div style="width: 120px">
-                <v-slider
-                  v-model="slider2"
-                  color="orange"
-                  label="color"
-                ></v-slider>
-              </div>
-              <h4 class="mt-4">Creative designer</h4>
-              <h4 class="mt-4">developer vue js</h4>
-              <p class="text-grey">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam odio quisquam itaque laboriosam aspernatur nemo, illum molestiae unde facere eaque minus debitis nesciunt, inventore harum provident? Eos necessitatibus voluptatem inventore.</p>
 
-              <br>
-              <p class="text-grey">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam sit adipisci fugit suscipit, iure mollitia est, libero tempore sequi asperiores, a fuga veniam eveniet voluptate porro voluptas hic natus eaque?</p>
+      <v-row id="about" class="mt-16">
 
-              <v-btn tile dark color="orange" class="mt-4">Download</v-btn>
-            </v-col>
+        <v-col cols="12" sm="12" md="6" class="mt-16">
+          <div class="egg">
+            <div class="mb-10" style="height: 5px; " ></div>
+            <v-img
+              src="https://www.pngitem.com/pimgs/m/507-5077806_transparent-women-professional-business-woman-transparent-background-hd.png"
+              max-height="230"
+            >
+            </v-img>
+          </div>
+        </v-col>
 
-          </v-row>
+        <v-col cols="12" sm="12" md="6">
 
-        </div>
-      </v-col>
+          <h5 class="mt-5 text-h1">About me</h5>
+          <div style="width: 120px">
+            <v-slider
+              v-model="slider2"
+              color="orange"
+              label="color"
+            ></v-slider>
+          </div>
+          <h4 class="mt-4">Creative designer</h4>
+          <h4 class="mt-4">developer vue js</h4>
+          <p class="text-grey">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam odio quisquam itaque laboriosam aspernatur nemo, illum molestiae unde facere eaque minus debitis nesciunt, inventore harum provident? Eos necessitatibus voluptatem inventore.</p>
+
+          <br>
+          <p class="text-grey">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam sit adipisci fugit suscipit, iure mollitia est, libero tempore sequi asperiores, a fuga veniam eveniet voluptate porro voluptas hic natus eaque?</p>
+
+          <v-btn tile dark color="orange" class="mt-4">Download</v-btn>
+        </v-col>
+
+      </v-row>
+
 
       <div class="text-center mt-4">
         <h2>what's up!</h2>
@@ -105,10 +107,19 @@
         </div>
       </div>
 
-      <v-col cols="12" class="padd" id="portfolio">
-        <div class="first" id="project">
-          <v-row>
-            <v-col cols="12" class="d-flex">
+      <!-- -------------------------------- porofolio - project --------------------------------------- -->
+
+
+
+      <div id="portfolio">
+
+        <div class="text-h1 bg-lime-lighten-4 text-center mt-10 ">Project</div>
+
+        <div class="first " id="project">
+
+          <v-row class="">
+
+            <v-col cols="12" sm="12" md="4">
 
               <div class="child">
                 <v-btn icon="fas fa-laptop" color="#FBDF7E" class="text-white"></v-btn>
@@ -117,6 +128,10 @@
                 <br>
               </div>
 
+            </v-col>
+
+            <v-col cols="12" sm="12" md="4">
+
               <div class="child">
                 <v-btn icon="fas fa-mobile-alt" color="#FBDF7E" class="text-white"></v-btn>
                 <h3 class="ml-3 mt-4">App design</h3>
@@ -124,6 +139,9 @@
                 <br>
               </div>
 
+            </v-col>
+
+            <v-col cols="12" sm="12" md="4">
               <div class="child">
                 <v-btn icon="fas fa-camera" color="#FBDF7E" class="text-white"></v-btn>
                 <h3 class="ml-3 mt-4">Photography</h3>
@@ -138,38 +156,56 @@
           <v-divider></v-divider>
 
         </div>
-      </v-col>
 
-      <v-col col="12" sm="12" id="service">
-        <div class="d-flex justify-center mb-6">
-          <v-btn color="#FBDF7E" class="mr-2">All</v-btn>
-          <v-btn class="mr-2" variant="tonal">Web design</v-btn>
-          <v-btn class="mr-2" variant="tonal">Front-end</v-btn>
-          <v-btn class="mr-2" variant="tonal">Back-end</v-btn>
-        </div>
-      </v-col>
+      </div>
 
-      <v-col cols="12" class="imgHover">
-        <v-row class="fill-height" align="center" justify="center">
-          <template v-for="(item, i) in items" :key="i">
-            <v-col cols="12" md="4">
-              <v-hover v-slot="{ isHovering, props } ">
-                <v-card :elevation="isHovering ? 12 : 2 " :class=" { 'on-hover' : isHovering } " v-bind="props">
-                  <v-img :src="item.img" height="145px" cover />
-                </v-card>
-              </v-hover>
-            </v-col>
-          </template>
-        </v-row>
-      </v-col>
+      <!-- -------------------------------- services --------------------------------------- -->
 
-      <v-col cols="12" sm="12">
-        <div class="d-flex justify-center mb-6">
-          <v-btn color="#FBDF7E" class="mt-4"> Load More </v-btn>
-        </div>
-      </v-col>
+      <v-row>
 
-      <v-col cols="12" id="page">
+        <v-col col="12" sm="12" id="service" class="">
+
+          <div class="text-h1 bg-lime-lighten-4  text-center mt-16 mb-16">Services</div>
+
+          <div class="d-flex justify-center mb-6">
+            <v-btn color="#FBDF7E" class="mr-2">All</v-btn>
+            <v-btn class="mr-2" variant="tonal">Web design</v-btn>
+            <v-btn class="mr-2" variant="tonal">Front-end</v-btn>
+            <v-btn class="mr-2" variant="tonal">Back-end</v-btn>
+          </div>
+        </v-col>
+
+        <v-col cols="12" class="imgHover">
+
+          <v-row class="fill-height" align="center" justify="center">
+            <template v-for="(item, i) in items" :key="i">
+              <v-col cols="12" md="4">
+                <v-hover v-slot="{ isHovering, props } ">
+                  <v-card :elevation="isHovering ? 12 : 2 " :class=" { 'on-hover' : isHovering } " v-bind="props">
+                    <v-img :src="item.img" height="145px" cover />
+                  </v-card>
+                </v-hover>
+              </v-col>
+            </template>
+          </v-row>
+
+        </v-col>
+
+        <v-col cols="12" sm="12">
+          <div class="d-flex justify-center mb-6">
+            <v-btn color="#FBDF7E" class="mt-4"> Load More </v-btn>
+          </div>
+        </v-col>
+
+      </v-row>
+
+
+      <!-- -------------------------------- page --------------------------------------- -->
+
+      <v-col cols="12" id="page" class="my-8">
+
+        <div class="text-h1 bg-lime-lighten-4  text-center mt-16 mb-16">Pages</div>
+
         <div class="pre">
           <v-row>
 
@@ -224,7 +260,11 @@
               </v-card>
             </v-col>
 
+            <!-- -------------------------------- blog --------------------------------------- -->
+
             <v-col cols="12" id="blog">
+
+              <div class="text-h1 bg-lime-lighten-4  text-center mt-16 mb-16">Blog</div>
 
               <div class="hire">
 
@@ -236,7 +276,7 @@
                     </p>
                   </v-col>
 
-                  <v-col cols="12" sm="4">
+                  <v-col cols="12" sm="4" class="mt-16 d-flex align-content-end">
                     <v-btn color="#FBDF7E">Hire me</v-btn>
                   </v-col>
                 </v-row>
@@ -247,11 +287,17 @@
 
             <!-- -------------------------------- contact --------------------------------------- -->
 
-            <v-col cols="12" sm="12" class="px-16" id="contact">
+            <v-col cols="12" sm="12" id="contact">
+
+              <div class="text-h1 bg-lime-lighten-4  text-center my-16">Contact</div>
+
+              <!-- ----------------- contact info ----------------------------------------->
               <v-row>
-                <v-col cols="12" sm="4">
-                  <div class="child">
-                    <h1>Contact info.</h1>
+
+                <v-col cols="12" sm="3" class="bg-blue-accent-4">
+
+                  <div class="child ml-10">
+                    <h1 class="mt-10">Contact info.</h1>
                     <v-btn icon="fas fa-map-marker-alt" class="mt-10" variant="outlined"></v-btn> <br>
                     <span class="text-caption">Your street SYO, Your area dream</span> <br>
 
@@ -263,49 +309,63 @@
                     <span class="text-caption">lapinragnar@example.com</span> <br>
                     <span class="text-caption">lapinragnar@example.com</span> <br>
                   </div>
+
                 </v-col>
 
-                <v-col cols="12" sm="8">
-                  <h1 class="mt-8">Send your message</h1>
-                  <v-divider></v-divider>
-                  <span class="text-caption">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, vero amet ut quam aperiam nesciunt, tenetur ab sit sed dolore fuga facilis quo et ratione autem tempora perspiciatis saepe eveniet.
-                  </span>
+                <!-- -----------------send your message ----------------------------------------->
+
+                <v-col cols="12" sm="9" class="bg-brown-lighten-3">
+
+
+                  <div class="ml-10">
+
+                    <h1 class="mt-10">Send your message</h1>
+                    <v-divider></v-divider>
+
+                    <span class="text-caption">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, vero amet ut quam aperiam nesciunt, tenetur ab sit sed dolore fuga facilis quo et ratione autem tempora perspiciatis saepe eveniet.
+                    </span>
+
+                  </div>
 
                   <v-row class="mt-10">
+
                     <v-col cols="12" sm="6">
 
-                      <v-row>
+                      <v-text-field
+                        name="name"
+                        label="Name"
+                        persistent-hint
+                        variant="outlined"
+                        class="mr-15 w-100"
+                      ></v-text-field>
 
-                        <v-text-field
-                          name="name"
-                          label="Name"
-                          persistent-hint
-                          variant="outlined"
-                          class="mr-15 w-100"
-                        ></v-text-field>
+                      <v-text-field
+                        name="name"
+                        label="Phone"
+                        persistent-hint
+                        variant="outlined"
+                        class="mr-15 w-100"
+                      ></v-text-field>
+                    </v-col>
 
-                        <v-text-field
-                          name="name"
-                          label="Phone"
-                          persistent-hint
-                          variant="outlined"
-                          class="mr-15 w-100"
-                        ></v-text-field>
+                    <v-col cols="12" sm="6">
+                      <v-textarea
+                        name="message"
+                        label="Message"
+                        persistent-hint
+                        variant="outlined"
+                      ></v-textarea>
 
-                        <v-textarea
-                          name="message"
-                          label="Message"
-                          persistent-hint
-                          variant="outlined"
-                        ></v-textarea>
 
-                      </v-row>
+
                       <v-btn color="#FBDF7E" class="mt-2">Submit</v-btn>
 
                     </v-col>
 
                   </v-row>
+
+
                 </v-col>
 
               </v-row>
@@ -372,7 +432,7 @@
 
   .v-container {
     padding: 16px 0;
-    background-color: red;
+    /* background-color: red; */
 
     .head {
       position: relative;
@@ -398,7 +458,10 @@
       }
 
       .head-premiere-ligne {
-        background-color: darkgreen;
+
+        @media (max-width: 600px) {
+          background-color: darkgoldenrod;
+        }
       }
 
       &:after {
@@ -427,18 +490,19 @@
 
     .first {
       width: 100%;
-      height: 380px;
+      /* height: 380px; */
       text-align: center;
       padding: 2rem 2rem;
 
 
-      .child {
+      /* .child {
         display: inline-block;
         padding: 2rem 1rem;
         vertical-align: middle;
         text-align: center;
         margin-right: 8px;
-      }
+        margin-left: 20px;
+      } */
 
       .imgHover {
         padding: 0 200px;
@@ -464,6 +528,11 @@
     .monFooter {
       width: 100%;
     }
+
+    /* #service {
+      margin-top: 300px;
+      background-color: purple;
+    } */
   }
 
 </style>

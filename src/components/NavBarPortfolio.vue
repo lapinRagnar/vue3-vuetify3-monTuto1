@@ -4,88 +4,101 @@
     color="black"
     dark
     flat
-    class="px-12"
+    class="px-12 mon-app-bar"
     height="100"
   >
-    <v-btn>
+
+
+    <v-app-bar-title class="text-orange">
+
       <v-icon
-        color="yellow"
+
         left
         class="mr-2"
         :to="{name: 'home'}"
       >fas fa-signature
       </v-icon>
       LapinRagnar
-    </v-btn>
+
+    </v-app-bar-title>
+
 
     <v-spacer></v-spacer>
 
-    <v-btn
-      @click="scroll('home')"
-      :class="hashSelected == 'home' ? 'navigation-selectionnee' : '' "
-    >
-      <v-icon left class="mr-2" icon="fa-solid fa-house" />
-      <span class="hidden-sm-and-down"> <span>Home</span></span>
-    </v-btn>
+    <div>
 
 
-    <v-btn
-      @click="scroll('about')"
-      :class="hashSelected == 'about' ? 'navigation-selectionnee' : '' "
-    >
-      <v-icon left class="mr-2" icon="fa-solid fa-question" />
-      <span class="hidden-sm-and-down"> <span>About</span></span>
-    </v-btn>
+      <v-btn
+        @click="scroll('home')"
+        :class="hashSelected == 'home' ? 'navigation-selectionnee' : '' "
+      >
+        <v-icon left class="mr-2" icon="fa-solid fa-house" />
+        <span class="hidden-sm-and-down"> <span>Home</span></span>
+      </v-btn>
 
-    <v-btn
-      @click="scroll('portfolio')"
-      :class="hashSelected == 'portfolio' ? 'navigation-selectionnee' : '' "
-    >
-      <v-icon left class="mr-2" icon="fa-solid fa-list-check" />
-      <span class="hidden-sm-and-down">
-        Portfolio
-      </span>
-    </v-btn>
 
-    <v-btn
-      @click="scroll('service')"
-      :class="hashSelected == 'service' ? 'navigation-selectionnee' : '' "
-    >
-      <v-icon left class="mr-2" icon="fa-solid fa-person-digging" />
-      <span class="hidden-sm-and-down">
-        Service
-      </span>
-    </v-btn>
+      <v-btn
+        @click="scroll('about')"
+        :class="hashSelected == 'about' ? 'navigation-selectionnee' : '' "
+      >
+        <v-icon left class="mr-2" icon="fa-solid fa-question" />
+        <span class="hidden-sm-and-down"> <span>About</span></span>
+      </v-btn>
 
-    <v-btn
-      @click="scroll('page')"
-      :class="hashSelected == 'page' ? 'navigation-selectionnee' : '' "
-    >
-      <v-icon left class="mr-2" icon="fa-solid fa-pencil" />
-      <span class="hidden-sm-and-down">
-        Page
-      </span>
-    </v-btn>
+      <v-btn
+        @click="scroll('portfolio')"
+        :class="hashSelected == 'portfolio' ? 'navigation-selectionnee' : '' "
+      >
+        <v-icon left class="mr-2" icon="fa-solid fa-list-check" />
+        <span class="hidden-sm-and-down">
+          Portfolio
+        </span>
+      </v-btn>
 
-    <v-btn
-      @click="scroll('blog')"
-      :class="hashSelected == 'blog' ? 'navigation-selectionnee' : '' "
-    >
-      <v-icon left class="mr-2" icon="fa-solid fa-blog" />
-      <span class="hidden-sm-and-down">
-        Blog
-      </span>
-    </v-btn>
+      <v-btn
+        @click="scroll('service')"
+        :class="hashSelected == 'service' ? 'navigation-selectionnee' : '' "
+      >
+        <v-icon left class="mr-2" icon="fa-solid fa-person-digging" />
+        <span class="hidden-sm-and-down">
+          Service
+        </span>
+      </v-btn>
 
-    <v-btn
-      @click="scroll('contact')"
-      :class="hashSelected == 'contact' ? 'navigation-selectionnee' : '' "
-    >
-      <v-icon left class="mr-2" icon="fa-solid fa-address-card" />
-      <span class="hidden-sm-and-down">
-        Contact
-      </span>
-    </v-btn>
+      <v-btn
+        @click="scroll('page')"
+        :class="hashSelected == 'page' ? 'navigation-selectionnee' : '' "
+      >
+        <v-icon left class="mr-2" icon="fa-solid fa-pencil" />
+        <span class="hidden-sm-and-down">
+          Page
+        </span>
+      </v-btn>
+
+      <v-btn
+        @click="scroll('blog')"
+        :class="hashSelected == 'blog' ? 'navigation-selectionnee' : '' "
+      >
+        <v-icon left class="mr-2" icon="fa-solid fa-blog" />
+        <span class="hidden-sm-and-down">
+          Blog
+        </span>
+      </v-btn>
+
+      <v-btn
+        @click="scroll('contact')"
+        :class="hashSelected == 'contact' ? 'navigation-selectionnee' : '' "
+      >
+        <v-icon left class="mr-2" icon="fa-solid fa-address-card" />
+        <span class="hidden-sm-and-down">
+          Contact
+        </span>
+      </v-btn>
+
+
+    </div>
+
+
 
 
 
@@ -115,6 +128,11 @@
   .navigation-selectionnee {
     border-bottom: 2px solid orange;
     color: greenyellow;
+  }
+
+  .mon-app-bar {
+    min-width: 800px;
+    overflow: auto;
   }
 </style>
 
