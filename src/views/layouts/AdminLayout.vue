@@ -1,4 +1,5 @@
 <template>
+
   <v-app id="inspire">
 
     <!-- la navbar -->
@@ -11,21 +12,58 @@
     >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
 
-      <v-toolbar-title>Title</v-toolbar-title>
+      <v-toolbar-title>Dashboard</v-toolbar-title>
 
       <v-spacer></v-spacer>
 
-      <v-btn icon>
-        <v-icon>mdi-magnify</v-icon>
+
+      <v-col cols="12" sm="6">
+
+        <v-form class="mt-6">
+          <v-text-field
+            type="text"
+            placeholder="tapez ce que tu veux ..."
+            label="recherche"
+            outlined
+            color="primary"
+            append-inner-icon="fa-solid fa-magnifying-glass"
+          >
+          </v-text-field>
+        </v-form>
+
+      </v-col>
+
+      <v-spacer />
+
+
+      <!----------------------------------- menu avec la cloche ---------------------- -->
+
+      <v-btn
+        color="primary"
+        stacked
+      >
+
+        <v-badge content="2" color="error">
+          <v-icon>fa-regular fa-bell</v-icon>
+        </v-badge>
+
+        <v-menu activator="parent">
+          <v-list
+            :items="items"
+            item-props
+            lines="three"
+            width="250"
+          >
+            <template v-slot:subtitle="{ subtitle }">
+              <div v-html="subtitle"></div>
+            </template>
+          </v-list>
+        </v-menu>
+        
       </v-btn>
 
-      <v-btn icon>
-        <v-icon>mdi-heart</v-icon>
-      </v-btn>
 
-      <v-btn icon>
-        <v-icon>mdi-dots-vertical</v-icon>
-      </v-btn>
+
     </v-app-bar>
 
     <v-navigation-drawer v-model="drawer">
@@ -47,6 +85,7 @@
               src="https://blog.photofeeler.com/wp-content/uploads/2017/09/instagram-profile-picture-maker.jpg"
 
             ></v-img>
+
           </v-avatar>
 
           <h3 class="text-white">Tableau de bord</h3>
@@ -116,11 +155,13 @@
       </v-container>
     </v-main>
   </v-app>
+
 </template>
 
 
 
 <script setup>
+
   import { ref } from 'vue'
 
   // import NavBarAdmin from '@/components/NavBarAdmin.vue'
@@ -133,6 +174,38 @@
     ['fa-brands fa-product-hunt', 'Product'],
     ['fa-solid fa-cart-shopping', 'Order'],
     ['fa-solid fa-gears', 'Settings'],
+  ])
+  const items = ref([
+    { type: 'subheader', title: 'Today' },
+    {
+      prependAvatar: 'https://cdn.vuetifyjs.com/images/lists/1.jpg',
+      title: 'Brunch this weekend?',
+      subtitle: `<span class="text-primary">Ali Connors</span> &mdash; I'll be in your neighborhood doing errands this weekend. Do you want to hang out?`,
+    },
+    { type: 'divider', inset: true },
+    {
+      prependAvatar: 'https://cdn.vuetifyjs.com/images/lists/2.jpg',
+      title: 'Summer BBQ',
+      subtitle: `<span class="text-primary">to Alex, Scott, Jennifer</span> &mdash; Wish I could come, but I'm out of town this weekend.`,
+    },
+    { type: 'divider', inset: true },
+    {
+      prependAvatar: 'https://cdn.vuetifyjs.com/images/lists/3.jpg',
+      title: 'Oui oui',
+      subtitle: '<span class="text-primary">Sandra Adams</span> &mdash; Do you have Paris recommendations? Have you ever been?',
+    },
+    { type: 'divider', inset: true },
+    {
+      prependAvatar: 'https://cdn.vuetifyjs.com/images/lists/4.jpg',
+      title: 'Birthday gift',
+      subtitle: '<span class="text-primary">Trevor Hansen</span> &mdash; Have any ideas about what we should get Heidi for her birthday?',
+    },
+    { type: 'divider', inset: true },
+    {
+      prependAvatar: 'https://cdn.vuetifyjs.com/images/lists/5.jpg',
+      title: 'Recipe to try',
+      subtitle: '<span class="text-primary">Britta Holt</span> &mdash; We should eat this: Grate, Squash, Corn, and tomatillo Tacos.',
+    },
   ])
 
 
