@@ -16,6 +16,7 @@
 
       <v-spacer></v-spacer>
 
+      <!---------------------- formulaire de recherche ----------------------------------------- -->
 
       <v-col cols="12" sm="6">
 
@@ -34,7 +35,6 @@
       </v-col>
 
       <v-spacer />
-
 
       <!----------------------------------- menu avec la cloche ---------------------- -->
 
@@ -58,11 +58,43 @@
               <div v-html="subtitle"></div>
             </template>
           </v-list>
+
         </v-menu>
-        
+
       </v-btn>
 
+      <!----------------------- bouton login avec image -------------------------------------------------- -->
 
+      <div>LapinRagnar</div>
+
+      <v-btn
+        color="primary"
+        stacked
+      >
+        <v-avatar size="35">
+          <v-img
+            src="https://cdn.vuetifyjs.com/images/john.jpg"
+            alt="John"
+          ></v-img>
+        </v-avatar>
+
+        <v-menu activator="parent">
+          <v-list >
+            <v-list-item
+              v-for="(item, index) in menusNav"
+              :key="index"
+              :value="index"
+              width="150"
+              class="d-flex"
+            >
+
+              <v-icon class="mr-5">{{ item.icon }}</v-icon>   {{ item.texte }}
+
+            </v-list-item>
+          </v-list>
+        </v-menu>
+
+    </v-btn>
 
     </v-app-bar>
 
@@ -119,39 +151,7 @@
         class="py-8 px-6"
         fluid
       >
-        <v-row>
-          <v-col
-            v-for="card in cards"
-            :key="card"
-            cols="12"
-          >
-            <v-card>
-
-              <v-list lines="two">
-                <v-list-subheader>{{ card }}</v-list-subheader>
-                <template v-for="n in 6" :key="n">
-                  <v-list-item>
-                    <template v-slot:prepend>
-                      <v-avatar color="grey-darken-1"></v-avatar>
-                    </template>
-
-                    <v-list-item-title>Message {{ n }}</v-list-item-title>
-
-                    <v-list-item-subtitle>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil repellendus distinctio similique
-                    </v-list-item-subtitle>
-                  </v-list-item>
-
-                  <v-divider
-                    v-if="n !== 6"
-                    :key="`divider-${n}`"
-                    inset
-                  ></v-divider>
-                </template>
-              </v-list>
-            </v-card>
-          </v-col>
-        </v-row>
+        
       </v-container>
     </v-main>
   </v-app>
@@ -206,6 +206,13 @@
       title: 'Recipe to try',
       subtitle: '<span class="text-primary">Britta Holt</span> &mdash; We should eat this: Grate, Squash, Corn, and tomatillo Tacos.',
     },
+  ])
+
+  const menusNav = ref([
+    { icon: 'fa-regular fa-user', texte: 'Login' },
+    { icon: 'fa-solid fa-address-book', texte: 'Profile' },
+    { icon: 'fa-solid fa-user-pen', texte: 'Settings' },
+    { icon: 'fa-solid fa-right-from-bracket', texte: 'Logout' },
   ])
 
 
