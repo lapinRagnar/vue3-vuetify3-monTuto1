@@ -1,3 +1,5 @@
+# link to visit the app
+https://decouverte-vuetify3.web.app
 # default
 
 ## Project setup
