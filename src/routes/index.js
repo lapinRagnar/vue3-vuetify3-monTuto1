@@ -47,7 +47,7 @@ const routes = [
     children: [
       {
         path: "",
-        component: () => import('@/views/pages/auth/Login.vue'),
+        component: () => import('@/views/pages/admin/AdminDashboard.vue'),
         name: 'administration',
         meta: {
           title: 'Admin'

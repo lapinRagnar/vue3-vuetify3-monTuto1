@@ -1,4 +1,4 @@
-<template>
+<template >
 
   <div>
     <RouterView></RouterView>
@@ -14,5 +14,6 @@
 </script>
 
 <style lang="scss">
+
 
 </style>
