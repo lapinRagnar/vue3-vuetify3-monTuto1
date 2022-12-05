@@ -73,7 +73,7 @@
       >
         <v-avatar size="35">
           <v-img
-            src="https://cdn.vuetifyjs.com/images/john.jpg"
+            src="https://blog.photofeeler.com/wp-content/uploads/2017/09/instagram-profile-picture-maker.jpg"
             alt="John"
           ></v-img>
         </v-avatar>
@@ -98,11 +98,12 @@
 
     </v-app-bar>
 
-    <v-navigation-drawer v-model="drawer">
+    <v-navigation-drawer v-model="drawer" width="200">
 
       <v-img
         class="pa-5"
         src="https://d1fmx1rbmqrxrr.cloudfront.net/zdnet/i/edit/ne/2015/12/Samsung-GalaxyS7-600.jpg"
+        height="200px"
       >
 
         <div class="text-center mt-5">
@@ -120,7 +121,7 @@
 
           </v-avatar>
 
-          <h3 class="text-white">Tableau de bord</h3>
+          <h3 class="text-white">LapinRagnar</h3>
 
 
         </div>

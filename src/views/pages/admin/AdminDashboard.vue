@@ -12,7 +12,7 @@
       <!-- colonne à gauche -->
 
       <v-col
-        lg="7" sm="12"  cols="12"
+        lg="7" md="7" sm="12"  cols="12"
       >
 
         <v-alert
@@ -59,7 +59,7 @@
 
       <!-- colonne à droite -->
 
-      <v-col cols="12" sm="12" lg="5" xl="5">
+      <v-col cols="12" sm="12" md="5" lg="5" xl="5">
 
         <v-card>
 
