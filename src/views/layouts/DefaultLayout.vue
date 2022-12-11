@@ -58,7 +58,7 @@
 
             <v-img
               v-if="authStore.user.isAuthenticated"
-              src="https://avatars0.githubusercontent.com/u/9064066?v=4&s=460"
+              :src="authStore.user.photoURL"
             ></v-img>
             <v-icon
               v-else
@@ -146,9 +146,9 @@
   const authStore = useAuthStore()
 
   const items = ref([
+    { title: 'Profile', icon: 'fa-solid fa-person-circle-exclamation', lien: 'profile' },
+    { title: 'Admin', icon: 'fa-solid fa-unlock', lien: 'administration' },
     { title: 'Settings', icon: 'fa-solid fa-gear', lien: '' },
-    { title: 'Profile', icon: 'fa-solid fa-person-circle-exclamation', lien: '' },
-    { title: 'Admin', icon: 'fa-solid fa-unlock', lien: '' },
   ])
 
 

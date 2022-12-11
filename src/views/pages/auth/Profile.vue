@@ -1,5 +1,4 @@
 <template>
-
   <v-row class="background conteneur">
 
     <v-col cols="10" lg="4" >
@@ -11,7 +10,18 @@
       >
 
         <v-avatar color="surface-variant" size="100">
-          <v-icon size="60" icon="mdi:mdi-account"></v-icon>
+
+          <v-img
+            v-if="authStore.user.photoURL"
+            :src="authStore.user.photoURL"
+          ></v-img>
+
+          <v-icon
+            v-else
+            size="60"
+            icon="mdi:mdi-account"
+          ></v-icon>
+          
         </v-avatar>
 
         <v-form
@@ -21,26 +31,61 @@
           <v-card-text>
 
             <v-text-field
-              v-model="state.email"
+              v-model="authStore.user.displayName"
+              label="Display Name"
+              required
+              type="text"
+              prepend-inner-icon="fa-regular fa-keyboard"
+            ></v-text-field>
+
+
+            <v-text-field
+              v-model="authStore.user.photoURL"
+              label="Photo"
+              required
+              type="text"
+              prepend-inner-icon="fa-solid fa-image"
+            ></v-text-field>
+
+            <v-text-field
+              v-model="authStore.user.phoneNumber"
+              label="Phone Number"
+              required
+              type="text"
+              prepend-inner-icon="fa-solid fa-mobile"
+            ></v-text-field>
+
+            <v-text-field
+              v-model="authStore.user.email"
               :rules="state.emailRules"
               label="E-mail"
               required
               type="email"
               prepend-inner-icon="mdi:mdi-account"
+              disabled
+            ></v-text-field>
+
+
+
+            <v-text-field
+              v-model="authStore.user.lastLoginAt"
+              label="Last login at"
+              required
+              type="text"
+              prepend-inner-icon="fa-regular fa-clock"
+              disabled
             ></v-text-field>
 
             <v-text-field
-              v-model="state.password"
-              :rules="state.passwordRules"
-              label="Password"
+              v-model="authStore.user.createdAt"
+              label="Created at"
               required
-              :type="state.passwordShow ? 'text' : 'password'"
-              prepend-inner-icon="mdi:mdi-key"
-              :append-inner-icon="state.passwordShow ? 'mdi:mdi-eye' : 'mdi:mdi-eye-off'"
-              @click:append-inner="(state.passwordShow = !state.passwordShow)"
+              type="text"
+              prepend-inner-icon="fa-regular fa-clock"
+              disabled
             ></v-text-field>
 
-            <v-switch></v-switch>
+
 
           </v-card-text>
 
@@ -51,7 +96,7 @@
               class="mr-4"
               @click="valider"
             >
-              Signup
+              Update
             </v-btn>
 
           </v-card-actions>
@@ -59,19 +104,11 @@
         </v-form>
 
 
-        <v-card-actions>
-          <v-btn
-            @click="goToLogin"
-          >Already have an account?</v-btn>
-        </v-card-actions>
-
-
       </v-card>
 
     </v-col>
 
-  </v-row>
-
+    </v-row>
 </template>
 
 <script setup>
@@ -87,43 +124,35 @@
 
   const state = reactive({
     isValid: false,
-    password: '',
-    passwordShow: false,
     email: '',
-    passwordRules: [
-      v => !!v || 'Name is required',
-      v => v.length >= 4 || 'Password must 4 characters and more',
-    ],
     emailRules: [
       v => !!v || 'E-mail is required',
       v => /.+@.+/.test(v) || 'E-mail must be valid',
     ],
   })
 
+
   async function valider(){
 
-    const { valid } = await form.value.validate()
+  const { valid } = await form.value.validate()
 
-    authStore.user.email = state.email
-    authStore.user.password = state.password
+  console.log('dans signup view', authStore.user)
 
-    console.log('dans signup view', authStore.user)
+  if (valid) {
+    console.log('c valid')
+    authStore.profile()
 
-    if (valid) {
-      console.log('c valid')
-      authStore.signup()
-
-    } else {
-      console.log('erreur de validation')
-    }
+  } else {
+    console.log('erreur de validation')
+  }
   }
 
   const goToLogin = async () => {
     await router.push({ name: 'login'})
   }
 
-</script>
 
+</script>
 
 <style lang="scss">
   .background {
@@ -143,5 +172,4 @@
     align-items: center;
     justify-content: center;
   }
-
 </style>

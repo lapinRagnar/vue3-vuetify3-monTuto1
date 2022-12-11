@@ -46,6 +46,14 @@ const routes = [
           title: 'Signup'
         },
       },
+      {
+        path: "profile",
+        component: () => import('@/views/pages/auth/Profile.vue'),
+        name: 'profile',
+        meta: {
+          title: 'Profile'
+        },
+      },
     ]
   },
   {

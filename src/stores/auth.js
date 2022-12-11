@@ -1,6 +1,6 @@
 import { reactive } from 'vue'
 import { defineStore } from 'pinia'
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from 'firebase/auth'
+import { updateProfile, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from 'firebase/auth'
 
 import { auth } from '@/firebase/config.js'
 import { useRouter } from "vue-router"
@@ -17,6 +17,12 @@ export const useAuthStore = defineStore('auth', () => {
     password: '',
     isAuthenticated: false,
     messageAuth: '',
+    photoURL: '',
+    phoneNumber: '',
+    lastLoginAt: '',
+    createdAt: '',
+    displayName: '',
+
   })
 
 
@@ -50,6 +56,12 @@ export const useAuthStore = defineStore('auth', () => {
         user.isAuthenticated = true
         user.email = utilisateur.email
         user.pseudoEmail = user.email.substring(0, user.email.indexOf('@'))
+        user.photoURL = utilisateur.photoURL
+        user.phoneNumber = utilisateur.phoneNumber
+        user.lastLoginAt = utilisateur.metadata.lastSignInTime
+        user.createdAt = utilisateur.metadata.lastSignInTime
+        user.displayName = utilisateur.displayName
+
         console.log(`----- l'user ${user.id} - ${user.email} - isAuthenticated = ${user.isAuthenticated}`)
         console.log('##################################################################')
         console.log("tout l'user", utilisateur)
@@ -99,9 +111,27 @@ export const useAuthStore = defineStore('auth', () => {
 
   }
 
+  async function profile() {
+
+    await updateProfile(auth.currentUser, {
+      displayName: user.displayName,
+      photoURL: user.photoURL
+    }).then(async () => {
+      // Profile updated!
+      // ...
+      console.log('user bien mises à jour!')
+      await router.push({ name: 'home'})
+    }).catch((error) => {
+      // An error occurred
+      // ...
+      console.log('erreur de mises à jour')
+      console.log('mon erreur', error)
+    })
+  }
+
 
   return {
-    user, signup, initialisationUser, logout, login
+    user, signup, initialisationUser, logout, login, profile
   }
 
 })
