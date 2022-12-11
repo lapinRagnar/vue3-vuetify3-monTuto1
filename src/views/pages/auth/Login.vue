@@ -64,7 +64,7 @@
       </v-card>
 
     </v-col>
-    
+
   </v-row>
 
 </template>
@@ -73,6 +73,9 @@
 
   import { reactive, ref } from 'vue'
   import { useAuthStore } from '@/stores/auth'
+  import { useRouter } from 'vue-router'
+
+  
 
   const form = ref(null)
   const authStore = useAuthStore()
@@ -93,9 +96,16 @@
   })
 
   async function valider(){
+
     const { valid } = await form.value.validate()
     console.log('valid', valid)
-    console.log('utilisateur connecté!');
+    console.log('utilisateur connecté!')
+
+    authStore.user.isAuthenticated = true
+    authStore.user.email = state.email
+
+    console.log("authStore.user.isAuthenticated", authStore.user)
+
   }
 
 

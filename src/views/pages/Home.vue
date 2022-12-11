@@ -1,6 +1,7 @@
 <template>
   <div>
-    <h1>Home</h1>
+
+    <h1>Home - salut</h1>
 
     <v-toolbar color="green" >
 
@@ -38,13 +39,16 @@
 
     </v-toolbar>
 
+    <v-color-picker></v-color-picker>
+
+
+
   </div>
 </template>
 
 <script setup>
 
-  import { ref } from 'vue';
-
+  import { ref } from 'vue'
 
   const items = ref([
     {
