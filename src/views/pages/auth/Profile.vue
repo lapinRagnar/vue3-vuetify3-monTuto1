@@ -1,4 +1,5 @@
 <template>
+
   <v-row class="background conteneur">
 
     <v-col cols="10" lg="4" >
@@ -21,7 +22,7 @@
             size="60"
             icon="mdi:mdi-account"
           ></v-icon>
-          
+
         </v-avatar>
 
         <v-form
@@ -109,6 +110,7 @@
     </v-col>
 
     </v-row>
+    
 </template>
 
 <script setup>
