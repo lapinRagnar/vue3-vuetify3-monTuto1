@@ -97,7 +97,6 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
   document.title = `Decouverte Vuetify 3 | ${to.name}`
-  console.log('tooooo', to)
   next()
 })
 

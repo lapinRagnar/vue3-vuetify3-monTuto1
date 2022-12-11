@@ -2,11 +2,11 @@
 
   <v-app>
 
-      <v-toolbar
-        dark
-        prominent
-        color="black"
-      >
+    <v-toolbar
+      dark
+      prominent
+      color="black"
+    >
 
       <v-toolbar-title
         class="text-green-darken-4 font-weight-bold"
@@ -103,7 +103,9 @@
                 </div>
 
               </v-list-item>
+              
             </v-list>
+
           </v-menu>
 
 
