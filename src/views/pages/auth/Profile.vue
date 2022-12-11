@@ -1,8 +1,8 @@
 <template>
 
-  <v-row class="background conteneur">
+  <v-row class="background conteneur mt-15">
 
-    <v-col cols="10" lg="4" >
+    <v-col cols="10" sm="4" >
 
       <v-card
         class=" text-center pa-4 bg-indigo-lighten-4"
@@ -109,8 +109,12 @@
 
     </v-col>
 
-    </v-row>
-    
+    <v-col cols="10" sm="6" class="droite" >
+
+    </v-col>
+
+  </v-row>
+
 </template>
 
 <script setup>
@@ -138,10 +142,7 @@
 
   const { valid } = await form.value.validate()
 
-  console.log('dans signup view', authStore.user)
-
   if (valid) {
-    console.log('c valid')
     authStore.profile()
 
   } else {
@@ -173,5 +174,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  .droite {
+    height: 500px;
+    background-color: rgba($color: #527b52, $alpha: 1.0);
   }
 </style>

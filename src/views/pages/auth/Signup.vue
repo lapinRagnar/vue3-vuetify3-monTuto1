@@ -2,7 +2,9 @@
 
   <v-row class="background conteneur">
 
-    <v-col cols="10" lg="4" >
+    <v-col cols="10" sm="6" class="gauche "></v-col>
+
+    <v-col cols="10" sm="4" class="droite">
 
       <v-card
         class=" text-center pa-4 bg-indigo-lighten-4"
@@ -39,8 +41,6 @@
               :append-inner-icon="state.passwordShow ? 'mdi:mdi-eye' : 'mdi:mdi-eye-off'"
               @click:append-inner="(state.passwordShow = !state.passwordShow)"
             ></v-text-field>
-
-            <v-switch></v-switch>
 
           </v-card-text>
 
@@ -110,7 +110,6 @@
     console.log('dans signup view', authStore.user)
 
     if (valid) {
-      console.log('c valid')
       authStore.signup()
 
     } else {
@@ -126,15 +125,6 @@
 
 
 <style lang="scss">
-  .background {
-    background-image: url('yellow-green-abstract.jpg');
-    max-height: 600px;
-    width: 100%;
-    display: block;
-    position: absolute;
-    top: 0;
-    background-size: cover;
-  }
 
   .conteneur {
     width: 100vw;
@@ -142,6 +132,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+
+    .gauche {
+      width: 100%;
+      background-color: yellowgreen;
+    }
+
+    .droite {
+      margin-left: -90px;
+    }
   }
 
 </style>

@@ -62,10 +62,8 @@ export const useAuthStore = defineStore('auth', () => {
         user.createdAt = utilisateur.metadata.lastSignInTime
         user.displayName = utilisateur.displayName
 
-        console.log(`----- l'user ${user.id} - ${user.email} - isAuthenticated = ${user.isAuthenticated}`)
         console.log('##################################################################')
         console.log("tout l'user", utilisateur)
-        console.log('*********************************************************************')
       } else {
         // User is signed out
         // ...
@@ -97,8 +95,6 @@ export const useAuthStore = defineStore('auth', () => {
     .then( async (userCredential) => {
       // Signed in
       const utilisateur = userCredential
-      console.log('mon credential', utilisateur)
-
       await router.push({ name: 'home'})
 
     })
