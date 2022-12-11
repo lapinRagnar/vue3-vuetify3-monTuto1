@@ -9,57 +9,67 @@
         variant="flat"
       >
 
-      <v-avatar color="surface-variant" size="100">
-        <v-icon size="60" icon="mdi:mdi-account"></v-icon>
-      </v-avatar>
+        <v-avatar color="surface-variant" size="100">
+          <v-icon size="60" icon="mdi:mdi-account"></v-icon>
+        </v-avatar>
 
 
-      <v-form
-        ref="form"
-        v-model="state.isValid"
+        <v-form
+          ref="form"
+          v-model="state.isValid"
 
-      >
+        >
 
-        <v-card-text>
+          <v-card-text>
 
-          <v-text-field
-            v-model="state.email"
-            :rules="state.emailRules"
-            label="E-mail"
-            required
-            type="email"
-            prepend-inner-icon="mdi:mdi-account"
-          ></v-text-field>
+            <v-text-field
+              v-model="state.email"
+              :rules="state.emailRules"
+              label="E-mail"
+              required
+              type="email"
+              prepend-inner-icon="mdi:mdi-account"
+            ></v-text-field>
 
-          <v-text-field
-            v-model="state.password"
-            :rules="state.passwordRules"
-            label="Password"
-            required
-            :type="state.passwordShow ? 'text' : 'password'"
-            prepend-inner-icon="mdi:mdi-key"
-            :append-inner-icon="state.passwordShow ? 'mdi:mdi-eye' : 'mdi:mdi-eye-off'"
-            @click:append-inner="(state.passwordShow = !state.passwordShow)"
-          ></v-text-field>
+            <v-text-field
+              v-model="state.password"
+              :rules="state.passwordRules"
+              label="Password"
+              required
+              :type="state.passwordShow ? 'text' : 'password'"
+              prepend-inner-icon="mdi:mdi-key"
+              :append-inner-icon="state.passwordShow ? 'mdi:mdi-eye' : 'mdi:mdi-eye-off'"
+              @click:append-inner="(state.passwordShow = !state.passwordShow)"
+            ></v-text-field>
 
-          <v-switch></v-switch>
+            <v-switch></v-switch>
 
-        </v-card-text>
+          </v-card-text>
+
+          <v-card-actions>
+
+            <v-btn
+              color="success"
+              class="mr-4"
+              @click="valider"
+            >
+              Login
+            </v-btn>
+
+          </v-card-actions>
+
+        </v-form>
+
 
         <v-card-actions>
 
           <v-btn
-            color="success"
-            class="mr-4"
-            @click="valider"
+            @click="goToSignUp"
           >
-            Login
+            create an account
           </v-btn>
 
         </v-card-actions>
-
-      </v-form>
-
 
       </v-card>
 
@@ -75,8 +85,8 @@
   import { useAuthStore } from '@/stores/auth'
   import { useRouter } from 'vue-router'
 
-  
 
+  const router = useRouter()
   const form = ref(null)
   const authStore = useAuthStore()
 
@@ -99,13 +109,22 @@
 
     const { valid } = await form.value.validate()
     console.log('valid', valid)
-    console.log('utilisateur connecté!')
 
-    authStore.user.isAuthenticated = true
-    authStore.user.email = state.email
+    if (valid) {
+      authStore.user.email = state.email
+      authStore.user.password = state.password
+      authStore.login()
 
-    console.log("authStore.user.isAuthenticated", authStore.user)
+    } else {
+      console.log('erreur de connexion')
+      authStore.user.messageAuth = 'Non connecté!'
+    }
 
+  }
+
+  const goToSignUp = async() => {
+    console.log('marche')
+    await router.push({ name: 'signup'})
   }
 
 

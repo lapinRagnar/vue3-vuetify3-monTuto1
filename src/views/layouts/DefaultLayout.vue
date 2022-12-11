@@ -1,4 +1,5 @@
 <template>
+
   <v-app>
 
       <v-toolbar
@@ -9,9 +10,23 @@
 
       <v-app-bar-nav-icon></v-app-bar-nav-icon>
 
-      <v-toolbar-title class="text-green-darken-4 font-weight-bold">
+      <v-toolbar-title
+        class="text-green-darken-4 font-weight-bold"
+        v-if="!authStore.user.isAuthenticated"
+      >
         Decouverte Vuetify 3
       </v-toolbar-title>
+
+      <v-toolbar-title
+        v-else
+        class="text-green-darken-4 font-weight-bold"
+      >
+        Bonjour - {{ authStore.user.pseudoEmail }}
+      </v-toolbar-title>
+
+
+
+      <v-spacer></v-spacer>
 
       <v-toolbar-items>
 
@@ -37,25 +52,58 @@
         </v-btn>
 
 
-        <v-btn
-        >
+        <v-btn>
+
           <v-avatar color="surface-variant">
-            <v-img src="https://avatars0.githubusercontent.com/u/9064066?v=4&s=460"></v-img>
+
+            <v-img
+              v-if="authStore.user.isAuthenticated"
+              src="https://avatars0.githubusercontent.com/u/9064066?v=4&s=460"
+            ></v-img>
+            <v-icon
+              v-else
+            >fa-solid fa-unlock-keyhole</v-icon>
+
+
           </v-avatar>
 
-          <v-menu activator="parent" width="150" >
-            <v-list>
+          <v-menu activator="parent" width="150"  >
+            <v-list v-if="!authStore.user.isAuthenticated" >
+              <v-list-item
+                class="bg-blue-darken-4"
+                :to="{name: 'login'}"
+              >
+                <div class="d-flex ma-2">
+                  <v-icon class="mr-4">fa-solid fa-user-tie</v-icon>
+                  <v-list-item-title>Login</v-list-item-title>
+                </div>
+              </v-list-item>
+            </v-list>
+
+            <v-list v-else>
               <v-list-item
                 v-for="(item, index) in items"
                 :key="index"
                 :value="index"
                 class="bg-blue-darken-4"
                 :to="{name: item.lien}"
+
               >
                 <div class="d-flex ma-2">
                   <v-icon class="mr-4">{{item.icon}}</v-icon>
                   <v-list-item-title>{{ item.title }}</v-list-item-title>
                 </div>
+              </v-list-item>
+
+              <v-list-item
+                class="bg-blue-darken-4"
+                @click="authStore.logout"
+              >
+                <div class="d-flex ma-2">
+                  <v-icon class="mr-4">fa-solid fa-right-from-bracket</v-icon>
+                  <v-list-item-title>Logout</v-list-item-title>
+                </div>
+
               </v-list-item>
             </v-list>
           </v-menu>
@@ -98,11 +146,9 @@
   const authStore = useAuthStore()
 
   const items = ref([
-    { title: 'Login', icon: 'fa-solid fa-user-tie', lien: 'login' },
     { title: 'Settings', icon: 'fa-solid fa-gear', lien: '' },
     { title: 'Profile', icon: 'fa-solid fa-person-circle-exclamation', lien: '' },
     { title: 'Admin', icon: 'fa-solid fa-unlock', lien: '' },
-    { title: 'Logout', icon: 'fa-solid fa-right-from-bracket', lien: '' },
   ])
 
 

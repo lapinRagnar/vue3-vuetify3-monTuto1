@@ -58,6 +58,14 @@
 
         </v-form>
 
+
+        <v-card-actions>
+          <v-btn
+            @click="goToLogin"
+          >Already have an account?</v-btn>
+        </v-card-actions>
+
+
       </v-card>
 
     </v-col>
@@ -71,7 +79,10 @@
   import { reactive, ref } from 'vue'
   import { useAuthStore } from '@/stores/auth'
   import { uid } from 'uid'
+  import { useRouter } from "vue-router"
 
+
+  const router = useRouter()
   const form = ref(null)
   const authStore = useAuthStore()
 
@@ -93,22 +104,23 @@
   async function valider(){
 
     const { valid } = await form.value.validate()
-    const data = {
-      id: uid(),
-      email: state.email,
-      password: state.password
-    }
-    const Users = []
 
-    console.log('id', data.id)
+    authStore.user.email = state.email
+    authStore.user.password = state.password
+
+    console.log('dans signup view', authStore.user)
 
     if (valid) {
-      console.log('c valid', data)
-      Users.push(data)
-      console.log('users', Users)
+      console.log('c valid')
+      authStore.signup()
+
     } else {
       console.log('erreur de validation')
     }
+  }
+
+  const goToLogin = async () => {
+    await router.push({ name: 'login'})
   }
 
 </script>
