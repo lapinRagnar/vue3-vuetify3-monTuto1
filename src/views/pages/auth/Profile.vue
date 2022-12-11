@@ -33,6 +33,7 @@
 
             <v-text-field
               v-model="authStore.user.displayName"
+              :rules="state.NonEmptyRule"
               label="Display Name"
               required
               type="text"
@@ -86,8 +87,6 @@
               disabled
             ></v-text-field>
 
-
-
           </v-card-text>
 
           <v-card-actions>
@@ -135,6 +134,9 @@
       v => !!v || 'E-mail is required',
       v => /.+@.+/.test(v) || 'E-mail must be valid',
     ],
+    NonEmptyRule: [
+      v => !!v || 'Champ requis'
+    ]
   })
 
 

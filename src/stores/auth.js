@@ -5,10 +5,13 @@ import { updateProfile, createUserWithEmailAndPassword, onAuthStateChanged, sign
 import { auth } from '@/firebase/config.js'
 import { useRouter } from "vue-router"
 
+import { useAutreVariableGlobale } from '@/stores/autreVariableGlobale'
+
 
 export const useAuthStore = defineStore('auth', () => {
 
   const router = useRouter()
+  const autreVariableGlobale = useAutreVariableGlobale()
 
   const user = reactive({
     id: '',
@@ -102,6 +105,8 @@ export const useAuthStore = defineStore('auth', () => {
       const errorCode = error.code
       const errorMessage = error.message
       user.messageAuth = 'Login ou Password incorrect'
+      autreVariableGlobale.dialog = true
+
       console.log('errorCode, errorMessage', errorCode, errorMessage)
     })
 
@@ -122,6 +127,8 @@ export const useAuthStore = defineStore('auth', () => {
       // ...
       console.log('erreur de mises à jour')
       console.log('mon erreur', error)
+      user.messageAuth = 'erreur de mise à jour - champ incorrect!'
+      autreVariableGlobale.dialog = true
     })
   }
 

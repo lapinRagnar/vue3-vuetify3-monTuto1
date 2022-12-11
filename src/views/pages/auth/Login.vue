@@ -4,6 +4,24 @@
 
     <v-col cols="10" sm="6" class="gauche">
 
+
+      <v-dialog
+        v-model="autreVariableGlobale.dialog"
+        width="500"
+      >
+        <v-card>
+          <v-card-text>
+            <div class="text-red">
+              {{ authStore.user.messageAuth }}
+            </div>
+          </v-card-text>
+          <v-card-actions>
+            <v-btn color="primary" block @click="autreVariableGlobale.dialog = false">Close Dialog</v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
+
+
     </v-col>
 
     <v-col cols="10" sm="4" class="droite" >
@@ -83,13 +101,19 @@
 <script setup>
 
   import { reactive, ref } from 'vue'
+
   import { useAuthStore } from '@/stores/auth'
+  import { useAutreVariableGlobale } from '@/stores/autreVariableGlobale'
+
   import { useRouter } from 'vue-router'
+
 
 
   const router = useRouter()
   const form = ref(null)
+
   const authStore = useAuthStore()
+  const autreVariableGlobale = useAutreVariableGlobale()
 
   const state = reactive({
     isValid: false,
