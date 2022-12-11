@@ -5,10 +5,8 @@
       <v-toolbar
         dark
         prominent
-        color="orange-lighten-3"
+        color="black"
       >
-
-      <v-app-bar-nav-icon></v-app-bar-nav-icon>
 
       <v-toolbar-title
         class="text-green-darken-4 font-weight-bold"
@@ -115,12 +113,12 @@
 
     </v-toolbar>
 
-    <v-container fluid justify="center" align-content="center" class="fill-height bg-green-lighten-5">
+    <v-container fluid justify="center" align-content="center" class="fill-height bg-green-accent-1">
 
       <v-row class="fill-height">
 
         <v-col
-          class="d-flex flex-column align-center justify-space-around bg-amber  "
+          class="d-flex flex-column align-center justify-space-around "
         >
 
           <v-main class="bg-blue-grey-lighten-5 w-25 text-center w-100">
@@ -156,6 +154,3 @@
 
 </script>
 
-<style lang="scss">
-
-</style>
