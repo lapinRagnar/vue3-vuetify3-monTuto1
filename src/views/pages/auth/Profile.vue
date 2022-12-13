@@ -95,6 +95,7 @@
               color="success"
               class="mr-4"
               @click="valider"
+              :loading="loading"
             >
               Update
             </v-btn>
@@ -127,6 +128,8 @@
   const form = ref(null)
   const authStore = useAuthStore()
 
+  const loading = ref(false)
+
   const state = reactive({
     isValid: false,
     email: '',
@@ -145,7 +148,9 @@
   const { valid } = await form.value.validate()
 
   if (valid) {
+    loading.value = true
     authStore.profile()
+    loading.value = false
 
   } else {
     console.log('erreur de validation')

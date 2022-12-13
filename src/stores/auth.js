@@ -1,6 +1,12 @@
 import { reactive } from 'vue'
 import { defineStore } from 'pinia'
-import { updateProfile, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from 'firebase/auth'
+import {
+  updateProfile,
+  createUserWithEmailAndPassword,
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
+  signOut
+} from 'firebase/auth'
 
 import { auth } from '@/firebase/config.js'
 import { useRouter } from "vue-router"

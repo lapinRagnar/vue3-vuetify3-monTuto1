@@ -84,6 +84,7 @@
 
           <v-btn
             @click="goToSignUp"
+            :loading="loading"
           >
             create an account
           </v-btn>
@@ -108,9 +109,10 @@
   import { useRouter } from 'vue-router'
 
 
-
   const router = useRouter()
   const form = ref(null)
+
+  const loading = ref(false)
 
   const authStore = useAuthStore()
   const autreVariableGlobale = useAutreVariableGlobale()
@@ -137,7 +139,10 @@
     if (valid) {
       authStore.user.email = state.email
       authStore.user.password = state.password
+
+      loading.value = true
       authStore.login()
+      loading.value = false
 
     } else {
       console.log('erreur de connexion')
